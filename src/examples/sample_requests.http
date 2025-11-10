@@ -1,0 +1,31 @@
+### Fine-tuned
+POST https://api.openai.com/v1/responses
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+{
+  "model": "ft:gpt-4.1-mini-2025-04-14:buldee:amazon-electronics-ft:CaOkOuOd",
+  "input": [
+    {"role":"system","content":"You are a helpful Amazon customer support assistant. Answer factually, concisely, and safely."},
+    {"role":"user","content":"Inquiry: \"How do I track my order?\""}
+  ],
+  "temperature": 0.2,
+  "max_output_tokens": 300,
+  "seed": 42
+}
+
+### Baseline
+POST https://api.openai.com/v1/responses
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+{
+  "model": "gpt-4.1-mini-2025-04-14",
+  "input": [
+    {"role":"system","content":"You are a helpful Amazon customer support assistant. Answer factually, concisely, and safely."},
+    {"role":"user","content":"Inquiry: \"How do I track my order?\""}
+  ],
+  "temperature": 0.2,
+  "max_output_tokens": 300,
+  "seed": 42
+}
